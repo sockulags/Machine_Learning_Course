@@ -5,3 +5,5 @@ data/dataset/img/
 data/dataset/json/
 
 node/node_modules/
+
+package*
