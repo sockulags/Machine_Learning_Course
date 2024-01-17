@@ -11,3 +11,25 @@ body{
     transform: translate(-50%,-50%);
     text-align: center;
 }
+
+button{
+    cursor: pointer;
+    border: none;
+    margin-top: 5px;
+    padding: 5px 10px;   
+    border-radius: 5px;
+    background-color: navy;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+button:hover{
+    background-color: mediumblue;
+}
+
+button:disabled,
+button:disabled:hover{
+    background-color: gray;
+    cursor: default;
+}
