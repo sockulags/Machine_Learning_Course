@@ -5,7 +5,8 @@
   - [Data Creator - SketchPad](#data-creator-drawing)
     - [How to Use](#how-to-use)
     - [Code Explanation](#code-explanation)
-  - [Working with Data](#working-with-data)
+  - [Working with Data](#dataset-generation)
+    - [Code Insights](#code-explanation-2)
 ---
 
 <a id=data-collection></a>
@@ -50,13 +51,68 @@ A utility function in `draw.js` for drawing multiple paths on the canvas with a 
   Resets the sketch pad by clearing paths and redrawing the canvas.
 
 - `#addEventListeners()`
-  Adds event listeners for mouse and touch events to handle drawing, undoing, and redrawing.
+  It's the party planner for the sketch pad, adding listeners for mouse and touch events to keep things smooth – drawing, undoing, and redrawing.
 
 - `#redraw()`
   Redraws the canvas with the current paths, updating the undo button's state.
 
 - `#getMouse(evt)`
-  Converts mouse or touch event coordinates relative to the canvas.
+  Converts mouse or touch event to coordinates relative to the canvas.
 
-<a id="working-with-data"></a>
-### Working with Data
+
+<a id=dataset-generation></a>
+## Data Crafting
+
+The dataset generation script is the maestro orchestrating raw data files into a comprehensive dataset for machine learning. Here's a breakdown of its symphony:
+
+1. **Data Retrieval:**
+     Collects raw data files from the designated directory (`constants.RAW_DIR`).
+  
+2. **Data Parsing:**
+     Parses each file to extract essential information about sessions, students, and their drawings.
+  
+3. **JSON Mastery:**
+     Crafts individual JSON files for each drawing, neatly stored in the `constants.JSON_DIR` repository.
+  
+4. **Visual Artistry:**
+     Creates PNG images for each drawing, elegantly residing in the `constants.IMG_DIR` gallery.
+  
+5. **Sample Documentation:**
+    Generates a comprehensive `samples.json` file detailing insights about each sample within the dataset.
+  
+6. **JavaScript Scripting:**
+     Composes a JavaScript file (`samples.js`) to encapsulate the essence of the dataset.
+
+<a id=code-explanation-2></a>
+### Code Insight
+
+#### Constants Module
+The `constants` module serves as the compass, defining the paths and directories crucial to the dataset generation process.
+
+#### Draw Module
+The Draw module is the versatile artist's toolkit. It gracefully handles sketching duties in both the browser on an HTML canvas and the Node.js environment (with the addition of the `canvas` dependency).
+
+#### Utils Module
+The `utils` module introduces practicality into the script. Noteworthy functions include `formatPercent` for refining percentage displays and `printProgress` for keeping the console informed.
+
+#### Dependency Installation
+
+Before launching the dataset generation script, ensure the necessary dependencies, including the `canvas` module, are in place. Node.js lacks inherent canvas support, so the `canvas` module bridges the gap and facilitates interactions with the HTML canvas API.
+
+Install the dependencies by executing the following command in your project directory:
+
+```bash
+npm install canvas
+```
+
+This command handles the installation of the canvas module and its dependencies, empowering your Node.js script with canvas-related capabilities.
+
+### Running the Script
+
+Post-dependency installation, execute the script with the following command:
+
+```bash
+node path/to/dataset_generator.js
+```
+
+The script meticulously processes raw data files, unveiling the dataset in the designated directories. For the dataset I utilized, refer to [this repository](https://github.com/gniziemazity/drawing-data).🚀✨
