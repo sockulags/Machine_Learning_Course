@@ -2,7 +2,7 @@
 
 **Table of content:**
 - [Data Collection](#data-collection)
-  - [Data Creator - Drawing](#data-creator-drawing)
+  - [Data Creator - SketchPad](#data-creator-drawing)
     - [How to Use](#how-to-use)
     - [Code Explanation](#code-explanation)
 
@@ -12,8 +12,8 @@
 ## Data Collection
 
 <a id=data-creator-drawing></a>
-### Data Creator - Drawing
-The Data Creator - Drawing application is designed to facilitate the collection of labeled drawing data for machine learning tasks. It provides a simple sketch pad interface for users to draw various objects, helping to build a diverse dataset for training models.
+### Data Creator - SketchPad
+Drawing application is designed to facilitate the collection of labeled drawing data for machine learning tasks. It provides a simple sketch pad interface for users to draw various objects, helping to build a diverse dataset for training models.
 
 <a id=how-to-use></a>
 ### How to Use
