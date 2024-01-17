@@ -1,11 +1,9 @@
-const constants={};
-
-constants.DATA_DIR="data";
-constants.RAW_DIR=constants.DATA_DIR+"/raw";
-constants.DATASET_DIR=constants.DATA_DIR+"/dataset";
-constants.IMG_DIR=constants.DATASET_DIR+"/img";
-constants.JSON_DIR=constants.DATASET_DIR+"/json";
-constants.SAMPLES=constants.DATASET_DIR+"/samples.json"
+const draw = require('../common/draw.js')
+const constants = require('../common/constants.js')
+const utils = require('../common/utils.js')
+const{createCanvas}=require('canvas');
+const canvas=createCanvas(400,400);
+const ctx=canvas.getContext('2d');
 
 const fs=require('fs');
 
@@ -22,8 +20,32 @@ fileNames.forEach(fn=>{
             student_name:student,
             student_id:session
         });
+
+        fs.writeFileSync(
+            constants.JSON_DIR+"/"+id+".json",
+            JSON.stringify(drawings[label])
+        )
+
+        generateImageFile(
+            constants.IMG_DIR+"/"+id+".png",
+            drawings[label]
+        )
+
+        utils.printProgress(id, fileNames.length*8);
         id++;
     }
 });
 fs.writeFileSync(constants.SAMPLES,
     JSON.stringify(samples));
+
+    fs.writeFileSync(constants.SAMPLES_JS,
+        "const samples="+JSON.stringify(samples)+";"
+        );
+
+function generateImageFile(outFile, paths){
+    ctx.clearRect(0,0, canvas.width, canvas.height);
+    draw.paths(ctx, paths);
+
+    const buffer=canvas.toBuffer("image/png");
+    fs.writeFileSync(outFile, buffer);
+}

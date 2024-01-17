@@ -5,7 +5,7 @@
   - [Data Creator - SketchPad](#data-creator-drawing)
     - [How to Use](#how-to-use)
     - [Code Explanation](#code-explanation)
-
+  - [Working with Data](#working-with-data)
 ---
 
 <a id=data-collection></a>
@@ -58,4 +58,5 @@ A utility function in `draw.js` for drawing multiple paths on the canvas with a 
 - `#getMouse(evt)`
   Converts mouse or touch event coordinates relative to the canvas.
 
-
+<a id="working-with-data"></a>
+### Working with Data
