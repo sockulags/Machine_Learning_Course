@@ -7,6 +7,7 @@
     - [Code Explanation](#code-explanation)
   - [Working with Data](#dataset-generation)
     - [Code Insights](#code-explanation-2)
+  - [Data Visualizer](#data-visualizer)
 ---
 
 <a id=data-collection></a>
@@ -116,3 +117,32 @@ node path/to/dataset_generator.js
 ```
 
 The script meticulously processes raw data files, unveiling the dataset in the designated directories. For the dataset I utilized, refer to [this repository](https://github.com/gniziemazity/drawing-data).🚀✨
+
+
+## Data Visualizer
+
+Added this `groupBy` function in the `utils.js` file. The groups each sample by id, meaning one group contains drawings from the one person. Here is the code for it: 
+```js
+utils.groupBy=(objArray,key)=>{
+    const groups={};
+    for(let obj of objArray){
+        const val=obj[key];
+        if(groups[val]==null){
+            groups[val]=[];
+        }
+groups[val].push(obj);
+    }
+    return groups;
+}
+```
+
+As you can we are grouping them by a key, in this case _"student_id"_ grouping each drawing by that key. Next up we are creating a table. 
+
+### Adding a disply-file.
+
+In this step we created another js-file, which we can re-use for later when showing other data. This file has a function that creates rows in a container, and it takes `container`, `name` and `samples` as parameters. 
+
+Each row will start with a name, an then each column of that row after the name will have samples in it. Like this: 
+
+![Image of samples](/readme_img/screenshot_dataviewer.png)
+
