@@ -138,7 +138,7 @@ groups[val].push(obj);
 
 As you can we are grouping them by a key, in this case _"student_id"_ grouping each drawing by that key. Next up we are creating a table. 
 
-### Adding a disply-file.
+### Adding a display-file.
 
 In this step we created another js-file, which we can re-use for later when showing other data. This file has a function that creates rows in a container, and it takes `container`, `name` and `samples` as parameters. 
 
@@ -146,3 +146,6 @@ Each row will start with a name, an then each column of that row after the name 
 
 ![Image of samples](/readme_img/screenshot_dataviewer.png)
 
+## Feature Extraction
+
+## Scatter Plot
